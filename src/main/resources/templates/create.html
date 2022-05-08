@@ -1,0 +1,42 @@
+<body>
+<h1>Create product</h1>
+<p>
+    <a href="/products">Product list</a>
+</p>
+<!--<th:block th:if="${message}">-->
+<!--    <p th:text="${message}"></p>-->
+<!--</th:block>-->
+<form th:action="@{/books/create}" th:object="${book}" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>price:</td>
+            <td><input type="text" th:field="*{price}"/></td>
+        </tr>
+        <tr>
+            <td>author:</td>
+            <td><input type="text" th:field="*{author}"/></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <select id="category" name="category">
+                    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>avatar:</td>
+            <td><input type="file" name="avatar"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create product"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
